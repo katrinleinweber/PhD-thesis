@@ -4,7 +4,7 @@
 
 1. Write in AcademicMarkdown in [Sublime](https://www.sublimetext.com/3) with Citer, as [explained by Christopher Grainger](http://blog.cigrainger.com/2014/07/pandoc-markdown.html).
 1. Separate `.md` file per chapter, numbered in filename to set order.
-1. Figures as mixed MD & LaTeX: `![**Caption.** Some more legend.\label{label}](images/image.pdf)
+1. Figures as mixed MD & LaTeX: `![**Caption.** Some more legend.\label{label}](images/image.pdf)`
 1. Conversion to LaTeX, then PDF with [pandoc](http://johnmacfarlane.net/pandoc/) as explained in [Jens Erat's "Scientific Markdown" makefile](https://github.com/JensErat/scientific-markdown/blob/master/makefile).
 
 #### References
