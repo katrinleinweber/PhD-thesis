@@ -1,13 +1,18 @@
-## PhD Thesis Tool Chain
+# A mixed Markdown/LaTeX toolchain for thesis and manuscript writing
 
-#### Text
+> All based on [Jens Erat's Scientific Markdown](https://github.com/JensErat/scientific-markdown). Huge thanks!
 
-1. Write in AcademicMarkdown in [Sublime](https://www.sublimetext.com/3) with Citer, as [explained by Christopher Grainger](http://blog.cigrainger.com/2014/07/pandoc-markdown.html).
-1. Separate `.md` file per chapter, numbered in filename to set order.
+## Text
+
+1. Write Markdown in [Sublime Text 3 beta](https://www.sublimetext.com/3) as [explained by Christopher Grainger](http://blog.cigrainger.com/2014/07/pandoc-markdown.html).
+    - with [PackageControl](https://packagecontrol.io/), [MarkdownEditing](https://packagecontrol.io/packages/MarkdownEditing), [AcademicMarkdown](https://packagecontrol.io/packages/AcademicMarkdown), [All Autocomplete](https://packagecontrol.io/packages/All%20Autocomplete) and [Citer](https://packagecontrol.io/packages/Citer).
+1. Separate `.md` file per chapter; number in filename determines order.
 1. Figures as mixed MD & LaTeX: `![**Caption.** Some more legend.\label{label}](images/image.pdf)`
-1. Conversion to LaTeX, then PDF with [pandoc](http://johnmacfarlane.net/pandoc/) as explained in [Jens Erat's "Scientific Markdown" makefile](https://github.com/JensErat/scientific-markdown/blob/master/makefile).
+1. Conversion to LaTeX by [pandoc](http://johnmacfarlane.net/pandoc/) and to PDF by [latexmk](http://users.phys.psu.edu/~collins/software/latexmk-jcc/) via [makefile](makefile)
 
-#### References
+## References
+
+> Easier version: Don't use collections, but let entire library be exported into thesis directory
 
 1. Manage in [Zotero](https://www.zotero.org/) collection "thesis".
     - keep selected, so that new items are automatically collected there
@@ -22,7 +27,7 @@
 1. Let `makefile` copy `thesis.bib` from backup to working directory.
 1. Let `makefile` call [natbib](http://ctan.org/pkg/natbib) for PDF version, but custom citation style `references.csl` with black links & shorter bibliography entries for print.
 
-#### Git
+## Git
 
 1. GitHub apps for [Win](https://windows.github.com/) & [Mac](https://mac.github.com/).
 1. Track whole working dir, [except TeX, R, Windows temp files](https://github.com/github/gitignore/) & final PDFs.
@@ -38,6 +43,8 @@
     - simply leave unsatisfactory experiments be => "stale" branch accessible later
     - remember to always switch the GitHub app to the right branch before `4. Try working on logical chunks`
 
-#### Other
+> An alternative I want to try: work on `content` branch most of the time, only rarely on `format`. Merge both into `doctor`  only for review & printing. Add revisions to `content` and `format` separately. Anything to avoid tinkering too much with citation style, makefile etc.
+
+## Other
 
 - [Cygwin shortcut for working directories](http://stackoverflow.com/a/12010346)
