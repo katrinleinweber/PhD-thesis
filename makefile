@@ -1,5 +1,4 @@
-clean:
-  # smaller set of test files for quickly build checks
+test:
 	pandoc \
 		--from markdown+table_captions \
 		--to latex \
@@ -7,29 +6,30 @@ clean:
 		--variable papersize=a4paper \
 		--variable fontsize=11pt \
 		--include-in-header header.tex \
-		--include-after-body footer.tex \
-		--bibliography references \
-		--natbib \
-		--output thesis.tex \
+		--bibliography thesis.bib \
+		--csl references.csl \
+		--variable citecolor=blue \
+		--variable linkcolor=blue \
+		--variable toccolor=blue \
+		--variable urlcolor=blue \
+		--output thesis-test.tex \
 		--standalone \
 		--toc \
 		--toc-depth=3 \
 		test-*.md
-	latexmk -pdflatex="pdflatex --shell-escape %O %S" -pdf thesis.tex
-	cp thesis.pdf thesis-test.pdf
+	latexmk -pdflatex="pdflatex --shell-escape %O %S" -pdf -cd -recorder- -auxdir="temp" thesis-test.tex # learned from http://tex.stackexchange.com/a/11125
+	# pdftk core-10-title.pdf thesis.pdf cat output thesis-print.pdf # learned from https://www.linux.com/learn/tutorials/442414
 
-core:
+pdf:
+	# [ ] after printing: \textattachfile[color=black]{ => \textattachfile[color=blue]{
+	# [ ] ask Ansgar for natbib style or create own: 
 	
-	# copy Zotero export to working directory on Win & Mac; learned from http://stackoverflow.com/a/5553659
-	if [ -a 'B:\Zotero\thesis.bib' ] ; \
-		then \
-			cp 'B:\Zotero\thesis.bib' 'C:\path\to\thesis\references.bib' ; \
-		else [ -a /path/to/Backup/Zotero/thesis.bib ] ; \
-			cp /path/to/Backup/Zotero/thesis.bib /Users/path/to/thesis/references.bib ; \
-	fi;
-
-	# - [ ] restyle natbib: fewer authors, last names only, short doi linked to URL
-	# 		--variable biblio-style= \
+	#if [ -a 'B:\Zotero\thesis.bib' ] ; \
+	#	then \
+	#		cp 'B:\Zotero\thesis.bib' 'C:\Users\Katrin\1209 - Doktor\writing\thesis\references.bib' ; \
+	#	else [ -a /Users/katrinleinweber/Backup/Zotero/thesis.bib ] ; \
+	#		cp /Users/katrinleinweber/Backup/Zotero/thesis.bib /Users/katrinleinweber/Documents/1209\ -\ Doktor/writing/thesis/references.bib ; \
+	#fi; # learned from http://stackoverflow.com/a/5553659
 
 	pandoc \
 		--from markdown+table_captions \
@@ -38,28 +38,7 @@ core:
 		--variable papersize=a4paper \
 		--variable fontsize=11pt \
 		--include-in-header header.tex \
-		--include-after-body footer.tex \
-		--bibliography references \
-		--natbib \
-		--output thesis.tex \
-		--standalone \
-		--toc \
-		--toc-depth=3 \
-		core-*.md
-	latexmk -pdflatex="pdflatex --shell-escape %O %S" -pdf thesis.tex
-	cp thesis.pdf thesis-core.pdf
-
-print:
-  # shorter bibliography & all black links
-	pandoc \
-		--from markdown+table_captions \
-		--to latex \
-		--variable documentclass=book \
-		--variable papersize=a4paper \
-		--variable fontsize=11pt \
-		--include-in-header header.tex \
-		--include-after-body footer.tex \
-		--bibliography references.bib \
+		--bibliography thesis.bib \
 		--csl references.csl \
 		--variable citecolor=black \
 		--variable linkcolor=black \
@@ -70,5 +49,21 @@ print:
 		--toc \
 		--toc-depth=3 \
 		core-*.md
-	latexmk -pdflatex="pdflatex --shell-escape %O %S" -pdf thesis.tex
-	cp thesis.pdf thesis-print.pdf
+	latexmk -pdflatex="pdflatex --shell-escape %O %S" -pdf -cd -recorder- -auxdir="temp" thesis.tex
+
+epub:
+	pandoc \
+		--from markdown+table_captions \
+		--output 'C:\Users\USER\Kindle\import\folder\thesis.epub' \
+		core-*.md 
+
+doc:
+	pandoc \
+		--from markdown+table_captions \
+		--bibliography references.bib \
+		--csl references.csl \
+		--output thesis.docx \
+		--standalone \
+		--toc \
+		--toc-depth=3 \
+		core-*.md
