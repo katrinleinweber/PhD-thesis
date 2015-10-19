@@ -42,7 +42,7 @@
   <macro name="editor">
       <names variable="editor">
         <label form="long" prefix=", " suffix=": "/>
-        <name form="short" sort-separator=" " initialize-with="" name-as-sort-order="all" delimiter=", " delimiter-precedes-last="always"/>
+        <name form="short" sort-separator=" " initialize-with="" name-as-sort-order="all" delimiter=", " delimiter-precedes-last="never" and="symbol"/>
       </names>
   </macro>
   <macro name="publisher">
@@ -190,7 +190,7 @@
         </date>
       </else-if>
       <else-if type="patent">
-        <group suffix=".">
+        <group>
           <group delimiter=", ">
             <text variable="number"/>
             <date variable="issued">
@@ -251,9 +251,8 @@
       </if>
     </choose>
   </macro>
-  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" collapse="year-suffix" year-suffix-delimiter=",">
+  <citation et-al-min="3" et-al-use-first="1" and="symbol" disambiguate-add-year-suffix="true" collapse="year-suffix" year-suffix-delimiter=",">
     <sort>
-      <key variable="author"/>
       <key variable="issued"/>
     </sort>
     <layout prefix="[" suffix="]" delimiter="; ">
@@ -269,7 +268,7 @@
       </group>
     </layout>
   </citation>
-  <bibliography et-al-min="3" et-al-use-first="3">
+  <bibliography delimiter-precedes-last="never" and="symbol">
     <sort>
       <key variable="author"/>
       <key variable="issued"/>

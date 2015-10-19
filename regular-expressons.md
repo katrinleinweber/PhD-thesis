@@ -4,8 +4,8 @@ Some regular expressions that I used for proof-reading.
 - `\!\[(?!\*{2})`: Find Markdown figures without bold 1st sentence; learned from http://stackoverflow.com/a/5900601/4341322
 - `\ \[.{2,}]\ `: finds [@...] citations within sentence, but not `- [ ]`
 - `[a-z]{3,}[^s][^\W]s\ `: finds 3rd-person singular, but also plural words
-- `[^\s]\ \ `: finds double whitespace within text, not in tables or indents
+- `\w\ {2,}\w`: finds double whitespaces within text
+- `\ {2,}\n`: finds double whitespaces on line end => ugly linebreak within paragraph
 - `\n.+\(.+\)\n- Your \w+ on Page \d+ \| .+ \| Added on \w+, \d+ \w+ \w+ \d+:\d+:\d+\n`: remove meta-info from Kindle clippings
 - `(\b\S+\b)\s+\b\1\b` or `\b(\w+)\s+\1\b`: find consecutive, duplicate words; learned from https://stackoverflow.com/questions/2823016/
-- `\n[^#|\}|\\]\w[^\.|\>|\:\?]*\n[A-Z]`: find open sentences, except for Markdown headers, LaTeX commands & HTML comments
-- `\,[^\ |\d|\n|\\]`: find commas with directly following letter
+- `\n[^#|\}|\\]\w[^\.|\>|\:\?]*\n[^MeOH|S32|LM|\*A|\(Fig][A-Z]`: finds open sentences
