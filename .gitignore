@@ -1,0 +1,42 @@
+# LaTeX
+*-blx.aux
+*-blx.bib
+*-converted-to.*
+*.atfi
+*.bbl
+*.bcf
+*.bib
+*.blg
+*.brf
+*.dvi
+*.fdb_latexmk
+*.run.xml
+*.tex-n
+*.toc
+thesis-test.tex
+thesis.tex
+
+# OS
+*.lnk
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# R
+.Rproj.user
+*.httr-oauth
+*.Rhistory
+*.RData
+*.Rproj
+
+# Custom 
+/temp
+*.docx
+*.epub
+*.sublime-project
+*.sublime-workspace
+*.tmp
+*.xcf
+helper-*.*
+test-*.md
+thesis.txt

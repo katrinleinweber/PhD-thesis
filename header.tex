@@ -1,19 +1,33 @@
+\usepackage{amsthm,amsmath}
 \usepackage{attachfile2} % - [ ] globalise color setting via embedfile & hypgotoe, see https://tex.stackexchange.com/questions/17926/
 \usepackage{dnaseq} % ftp://ftp.mpi-sb.mpg.de/pub/tex/mirror/ftp.dante.de/pub/tex/macros/latex/contrib/dnaseq/dnaseq.pdf
 
 \usepackage{fixfoot} % because [^] duplicated footnotes; learned from http://tex.stackexchange.com/a/48254/87927
-\DeclareFixedFootnote{\corrKL}{Author for correspondence: katrin.leinweber@uni-konstanz.de}
+\DeclareFixedFootnote{\eq}{Authors contributed equally to this work.}
+\DeclareFixedFootnote{\corrKL}{Author for correspondence: \href{mailto:katrin.leinweber@uni-konstanz.de}{katrin.leinweber@uni-konstanz.de}}
+\DeclareFixedFootnote{\corrMW}{Author for correspondence: \href{mailto:miriam.windler@uni-konstanz.de}{miriam.windler@uni-konstanz.de}}
+\DeclareFixedFootnote{\ZuKo}{\href{https://www.zukunftskolleg.uni-konstanz.de/contact/address/}{Zukunftskolleg at the University of Konstanz}}
+\DeclareFixedFootnote{\KoRS-CB}{\href{http://www.chembiol.uni-konstanz.de/contact.19.html}{Konstanz Research School Chemical Biology}}
+\DeclareFixedFootnote{\SCen}{\href{http://cms.uni-konstanz.de/screening-center/contact/}{Screening Center Konstanz}}
+\DeclareFixedFootnote{\BioKN}{\href{http://cms.uni-konstanz.de/en/biology/contact/}{Department of Biology, University of Konstanz}}
+\DeclareFixedFootnote{\MMMu}{\href{http://mibi1.uni-muenster.de/Biologie.IMMB.Philipp/index.html}{Institute of Molecular Microbiology and Biotechnology}}
 
 \usepackage[closeFloats]{fltpage} % FPfigure environments leaves large figure their own page & put caption next to it
 
 \usepackage[hang]{footmisc} % learned from http://tex.stackexchange.com/a/126878/87927
 \setlength\footnotemargin{10pt}
 
+\usepackage{gensymb}
 \usepackage{graphicx}
 \usepackage{epstopdf}
 \usepackage{subscript} % necessary after June 9th, MikTeX package upgrade
 \usepackage{subcaption}
+
 \usepackage{tocloft} % learned from http://www.latex-community.org/forum/viewtopic.php?f=5&t=7701
+\setlength{\cftbeforechapskip}{8pt}
+\setlength{\cftbeforesecskip}{5pt}
+\setlength{\cftbeforesubsecskip}{3pt}
+
 \usepackage{xcolor}
 \usepackage{xspace}
 
@@ -22,25 +36,18 @@
 \renewcommand{\bottomfraction}{.5} % default: .3
 
 % remove some whitespace; learned from http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/
-\usepackage[top=3cm,bottom=3cm,inner=3cm,outer=3cm]{geometry}
+\usepackage[a4paper,top=3cm,bottom=3cm,inner=3cm,outer=3cm]{geometry}
 \setlength{\topskip}{0pt}
 \setlength{\topmargin}{0pt}
 \setlength{\headsep}{30pt}
-\setlength\cftparskip{3.625pt}
-
-% reduce whitespace above chapter titles; learned from https://tex.stackexchange.com/questions/39988 + \raggedright
-\usepackage{titlesec}
-\titleformat{\chapter}[display]
-    {\normalfont\huge\bfseries\raggedright}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
-\titlespacing*{\chapter}{0pt}{0pt}{20pt}
 
 % indent 1st line of paragraphs; learned from https://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting#Paragraph_indent_and_break
 \usepackage{indentfirst}
 \setlength{\parindent}{15pt} % default
 
 % prevent individual lines on page bottom or top
-\clubpenalty=10000
-\widowpenalty=10000
+\clubpenalty=9999
+\widowpenalty=9999
 
 % prevent hyphenation; http://tex.stackexchange.com/a/48438
 \hyphenation{Achnanthidium}
@@ -60,3 +67,4 @@
 \hyphenation{brevistriata}
 \hyphenation{Chapter}
 \hyphenation{Table}
+\hyphenation{ASSIST}
