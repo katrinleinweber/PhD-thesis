@@ -51,4 +51,5 @@ This repository stores both the content of my thesis (sources, data, figures and
 
 - [Cygwin shortcut for working directories](http://stackoverflow.com/a/12010346)
 - Try to avoid tinkering too much & often with citation style, makefile etc. by working on a `content` branch most of the time, only rarely on `format`. Merge both into `doctor` only for review (maybe weekly) & final printing.
-- Be prepared for newly introduced incompatibilities when updating [LaTeX packages](https://www.ctan.org/) or [pandoc](http://pandoc.org/). Automate the testing of the final PDF for control characters like `~`, `{`, `_`, etc.
+- Be prepared for newly introduced incompatibilities when updating [LaTeX packages](https://www.ctan.org/) or [pandoc](http://pandoc.org/).
+- Automate the testing of the final PDFs for Markdown & LaTeX remnants or human errors, e.g. via `make check`.
