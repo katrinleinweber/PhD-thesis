@@ -1,3 +1,5 @@
+.PHONY: test cleaner clean doc pdf print check epub docx cd repo
+
 test: clean
 	pandoc \
 		--from markdown+table_captions+yaml_metadata_block \
