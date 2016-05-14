@@ -22,14 +22,14 @@ test: clean
 	pandoc -D latex > pandoc.tex
 
 cleaner: clean
-	rm *.atfi *.bbl *.tex-n
+	rm *.atfi *.tex-n *-to.txt
 
 clean:
-	latexmk -C
+	latexmk -c
 
-doc: pdf print epub
+doc: clean pdf print epub
 
-pdf: clean
+pdf: 
 	# [x] natbib needs latexmk without -cd -recorder- -auxdir="temp/"
 	# [x] no way to auto-convert .bst <=> .csl, see http://tex.stackexchange.com/a/69284 & https://forums.zotero.org/discussion/6878/
 
@@ -53,12 +53,12 @@ pdf: clean
 		core-*.md
 	sed -i -n 's/color=black/color=blue/g' thesis.tex
 	latexmk -pdflatex="xelatex --shell-escape %O %S" -pdf thesis.tex
-	pdftk thesis.pdf dump_data output thesis.txt
+	pdftk thesis.pdf dump_data output thesis-data.txt
 	pdftk A=core-10-title.pdf B=thesis.pdf cat A B2-end output thesis-pd.pdf # learned from https://www.linux.com/learn/tutorials/442414 & El Capitan problem fixed by http://stackoverflow.com/a/33248310
-	pdftk thesis-pd.pdf update_info thesis.txt output thesis-pdf.pdf # learned from https://sejh.wordpress.com/2014/11/26/changing-pdf-titles-with-pdftk/
-	rm thesis-pd.pdf thesis.txt
+	pdftk thesis-pd.pdf update_info thesis-data.txt output thesis-pdf.pdf # learned from https://sejh.wordpress.com/2014/11/26/changing-pdf-titles-with-pdftk/
+	rm thesis-pd.pdf thesis-data.txt
 
-print: clean
+print:
 	pandoc \
 		--from markdown+table_captions \
 		--to latex \
@@ -80,7 +80,7 @@ print: clean
 	latexmk -pdflatex="xelatex --shell-escape %O %S" -pdf thesis.tex
 	pdftk core-10-title.pdf core-11-empty.pdf thesis.pdf cat output thesis-print.pdf # learned from https://www.linux.com/learn/tutorials/442414
 
-epub: clean
+epub:
 	pandoc \
 		--from markdown+table_captions+yaml_metadata_block \
 		--bibliography thesis.bib \
@@ -88,7 +88,7 @@ epub: clean
 		--output thesis.epub \
 		core-*.md
 
-docx: clean
+docx:
 	pandoc \
 		--from markdown+table_captions+yaml_metadata_block \
 		--bibliography thesis.bib \
