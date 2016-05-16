@@ -89,9 +89,10 @@ check: # learned from http://stackoverflow.com/a/694125
 	pdftotext thesis.pdf thesis-to.txt
 	cat *-to.txt | \
 	grep \
-	 	--ignore-case \
-	 	--color \
-	 	--file=CHECKS
+		--ignore-case \
+		--color \
+		--extended-regexp \
+		--file=CHECKS
 
 epub:
 	pandoc \
