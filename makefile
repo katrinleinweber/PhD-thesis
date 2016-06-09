@@ -18,13 +18,13 @@ test: clean
 		--standalone \
 		--toc \
 		--toc-depth=3 \
-		core-5*.md core-9*.md
+		core-2*.md core-9*.md
 	sed -i -n -E 's/color=(black|blue)/color=red/g' thesis-test.tex
 	latexmk -pdflatex="xelatex --shell-escape %O %S" -pdf thesis-test.tex
 	pandoc -D latex > pandoc.tex
 
 cleaner: clean
-	rm *.atfi *.tex-n *-to.txt
+	rm *.atfi *.tex-n *-to.txt thesis.pdf thesis-pdf.pdf thesis-print.pdf 
 
 clean:
 	latexmk -c
