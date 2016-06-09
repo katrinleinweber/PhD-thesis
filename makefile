@@ -85,16 +85,22 @@ print:
 	pdftk core-10-title.pdf core-11-empty.pdf thesis.pdf cat output thesis-print.pdf # learned from https://www.linux.com/learn/tutorials/442414
 
 check: # learned from http://stackoverflow.com/a/694125
-	# [ ] find correct syntax for --regexp (here or in CHECKS), see https://www.gnu.org/software/grep/manual/grep.html#Matching-Control
 	# [ ] call after make pdf & print or before doc
 	pdftotext thesis-test.pdf thesis-test-to.txt
 	pdftotext thesis.pdf thesis-to.txt
+	cat core-*.md | \
+	grep \
+		--ignore-case \
+		--color \
+		--extended-regexp \
+		--file=CHECKS-MD
+
 	cat *-to.txt | \
 	grep \
 		--ignore-case \
 		--color \
 		--extended-regexp \
-		--file=CHECKS
+		--file=CHECKS-PDF
 
 epub:
 	pandoc \
