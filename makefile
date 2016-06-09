@@ -102,6 +102,23 @@ check: # learned from http://stackoverflow.com/a/694125
 		--extended-regexp \
 		--file=CHECKS-PDF
 
+diff: # learned from http://unix.stackexchange.com/a/104534 & http://stackoverflow.com/a/12170504
+	@while [ -z "$$EARLIER" ] || [ -z "$$LATER" ]; do \
+        read -r -p "Paste the hash of the earlier commit: " EARLIER; \
+        read -r -p "...which will be compared to the later commit: " LATER; \
+    done ; \
+    git diff \
+    	$$EARLIER \
+    	$$LATER \
+    	--color-words=. \
+    	--ignore-all-space \
+    	--unified=0 \
+    	core-*.md | \
+    ./helper-ansi2html.sh > \
+    helper-ansi2html-thesis-changes.html
+    # docu: https://git-scm.com/docs/git-diff
+    # credits: https://github.com/katrinleinweber/PhD-thesis/#helper-tools
+
 epub:
 	pandoc \
 		--from markdown+table_captions+yaml_metadata_block \

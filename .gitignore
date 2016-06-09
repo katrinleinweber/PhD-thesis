@@ -37,8 +37,8 @@ Desktop.ini
 *.sublime-workspace
 *.tmp
 *.xcf
-helper-*.*
 test-*.md
 thesis-data.txt
 *-to.txt
 thesis-*.txt
+*-changes.html
