@@ -44,7 +44,8 @@ This repository stores both the content of my thesis (sources, data, figures and
 
 ## Helper tools
 
-- `helper-ansi2html.sh`: exports changesets/diffs for review by non-Git user. Usage: `git diff <hash_of_earlier_commit> <hash_of_later_commit> --color | ./helper-ansi2html.sh > helper-ansi2html-thesis-changes.html`. Credit: [Paige Lo](http://stackoverflow.com/a/23481387).
+- `helper-ansi2html.sh`: exports changesets/diffs for review by non-Git user. Usage: `git diff <hash_of_earlier_commit> <hash_of_later_commit> --color-words=. | ./helper-ansi2html.sh > helper-ansi2html-thesis-changes.html`. Credit: [Paige Lo](http://stackoverflow.com/a/23481387), [yingted](http://stackoverflow.com/a/7870727/4341322), [Pádraig Brady & Brendan O'Connor](https://github.com/pixelb/scripts/blob/master/scripts/ansi2html.sh)
+    - In case of error `-bash: ./helper-ansi2html.sh: Permission denied`, try running the command `chmod +x helper-ansi2html.sh`. Credit: [pedro3005](http://ubuntuforums.org/showthread.php?t=1258327)
 - `helper-checkurls.R`: help to investigate broken or expired URLs. Usage: run in the [R](https://www.r-project.org/) console or [RStudio](https://www.rstudio.com/products/rstudio/). Credit: [Thomas Leeper](https://twitter.com/thosjleeper/status/725723310223417345).
 
 ## Known issues & miscellaneous advice
