@@ -1,4 +1,4 @@
-.PHONY: test cleaner clean doc pdf print check epub docx cd repo
+.PHONY: test cleaner clean doc thesis pdf print check epub docx cd repo
 
 test: clean
 	pandoc \
@@ -29,7 +29,9 @@ cleaner: clean
 clean:
 	latexmk -c
 
-doc: clean pdf print epub
+doc: thesis
+
+thesis: cleaner pdf print epub
 
 pdf: 
 	# [x] natbib needs latexmk without -cd -recorder- -auxdir="temp/"
