@@ -1,6 +1,6 @@
 # Characterisation of biotic interactions between a *Dyadobacter* strain and the diatom *Achnanthidium minutissimum* (Katrin Leinweber, PhD thesis, 2012-2015)
 
-This repository stores both the content of my thesis (sources, data, figures and supplemental files), and the software toolchain used to compile it into the final printed and [electronic]() versions.
+This repository stores both the content of my thesis (sources, data, figures and supplemental files), and the software toolchain used to compile it into the final printed and [electronic](http://kops.uni-konstanz.de/handle/123456789/34342) versions. **Please note:** The latter version is official! This repository is just an experimental tech-demo & backup.
 
 ## Toolchain: mixed Markdown & LaTeX
 
@@ -52,5 +52,4 @@ This repository stores both the content of my thesis (sources, data, figures and
 
 - [Cygwin shortcut for working directories](http://stackoverflow.com/a/12010346)
 - Try to avoid tinkering too much & often with citation style, makefile etc. by working on a `content` branch most of the time, only rarely on `format`. Merge both into `doctor` only for review (maybe weekly) & final printing.
-- Be prepared for newly introduced incompatibilities when updating [LaTeX packages](https://www.ctan.org/) or [pandoc](http://pandoc.org/).
-- Automate the testing of the final PDFs for Markdown & LaTeX remnants or human errors, e.g. via `make check`.
+- Be prepared for newly introduced incompatibilities when updating [LaTeX packages](https://www.ctan.org/) or [pandoc](http://pandoc.org/). Automate the testing of the final PDF for control characters like `~`, `{`, `_`, etc.

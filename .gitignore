@@ -2,7 +2,6 @@
 *-blx.aux
 *-blx.bib
 *-converted-to.*
-*.pdf
 *.atfi
 *.bbl
 *.bcf
@@ -33,7 +32,6 @@ Desktop.ini
 # Custom 
 /temp
 *.docx
-*.png
 *.sublime-project
 *.sublime-workspace
 *.tmp
