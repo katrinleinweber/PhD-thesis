@@ -2,6 +2,7 @@
 *-blx.aux
 *-blx.bib
 *-converted-to.*
+*.pdf
 *.atfi
 *.bbl
 *.bcf
@@ -32,12 +33,14 @@ Desktop.ini
 # Custom 
 /temp
 *.docx
-*.epub
+*.png
 *.sublime-project
 *.sublime-workspace
 *.tmp
 *.xcf
+helper-checkedURLs-investigate.txt
 test-*.md
+thesis.epub
 thesis-data.txt
 *-to.txt
 thesis-*.txt
