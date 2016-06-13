@@ -38,10 +38,9 @@ pdf:
 	# [x] no way to auto-convert .bst <=> .csl, see http://tex.stackexchange.com/a/69284 & https://forums.zotero.org/discussion/6878/
 
 	pandoc \
-		--from markdown+table_captions+yaml_metadata_block \
+		--from markdown+table_captions \
 		--to latex \
 		--variable documentclass=book \
-		--variable classoption=openany \
 		--variable fontsize=11pt \
 		--include-in-header header.tex \
 		--bibliography thesis.bib \
@@ -50,6 +49,7 @@ pdf:
 		--variable linkcolor=blue \
 		--variable toccolor=blue \
 		--variable urlcolor=blue \
+		--metadata link-citations \
 		--output thesis.tex \
 		--standalone \
 		--toc \
@@ -58,9 +58,17 @@ pdf:
 	sed -i -n 's/color=black/color=blue/g' thesis.tex
 	latexmk -pdflatex="xelatex --shell-escape %O %S" -pdf thesis.tex
 	pdftk thesis.pdf dump_data output thesis-data.txt
-	pdftk A=core-10-title.pdf B=thesis.pdf cat A B2-end output thesis-pd.pdf # learned from https://www.linux.com/learn/tutorials/442414 & El Capitan problem fixed by http://stackoverflow.com/a/33248310
+	pdftk core-10-title.pdf thesis.pdf cat output thesis-pd.pdf # learned from https://www.linux.com/learn/tutorials/442414 & El Capitan problem fixed by http://stackoverflow.com/a/33248310
 	pdftk thesis-pd.pdf update_info thesis-data.txt output thesis-pdf.pdf # learned from https://sejh.wordpress.com/2014/11/26/changing-pdf-titles-with-pdftk/
 	rm thesis-pd.pdf thesis-data.txt
+	exiftool \
+	    -Author="Katrin Leinweber" \
+	    -Keywords="Achnanthidium, bioassay, biofilm, capsule, diatom, diatom-bacteria interactions, energy-dispersive x-ray spectroscopy, EPS , KNIME, medium throughput, scanning electron microscopy" \
+	    -Title="Characterisation of biotic interactions between a Dyadobacter strain and the diatom Achnanthidium minutissimum" \
+		-Subject="570 Biosciences, Biology" \
+	thesis-pdf.pdf
+	cp thesis-pdf.pdf thesis-PhD-Katrin-Leinweber-Characterisation-of-biotic-interactions-between-a-Dyadobacter-strain-and-the-diatom-Achnanthidium-minutissimum.pdf
+
 
 print:
 	pandoc \
@@ -124,8 +132,9 @@ epub:
 		--from markdown+table_captions+yaml_metadata_block \
 		--bibliography thesis.bib \
 		--csl references.csl \
+		--metadata link-citations \
 		--output thesis.epub \
-		core-*.md
+		epub-meta.md core-*.md
 
 docx:
 	pandoc \

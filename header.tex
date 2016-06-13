@@ -12,6 +12,12 @@
 \DeclareFixedFootnote{\BioKN}{\href{http://cms.uni-konstanz.de/en/biology/contact/}{Department of Biology, University of Konstanz}}
 \DeclareFixedFootnote{\MMMu}{\href{http://mibi1.uni-muenster.de/Biologie.IMMB.Philipp/index.html}{Institute of Molecular Microbiology and Biotechnology}}
 
+% reduce whitespace above chapter titles; learned from https://tex.stackexchange.com/questions/39988 + \raggedright
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+    {\normalfont\huge\bfseries\raggedright}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
 \usepackage[closeFloats]{fltpage} % FPfigure environments leaves large figure their own page & put caption next to it
 
 \usepackage[hang]{footmisc} % learned from http://tex.stackexchange.com/a/126878/87927
