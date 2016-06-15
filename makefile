@@ -68,6 +68,7 @@ pdf:
 		-Subject="570 Biosciences, Biology" \
 	thesis-pdf.pdf
 	cp thesis-pdf.pdf thesis-PhD-Katrin-Leinweber-Characterisation-of-biotic-interactions-between-a-Dyadobacter-strain-and-the-diatom-Achnanthidium-minutissimum.pdf
+	$(MAKE) check
 
 
 print:
@@ -91,12 +92,13 @@ print:
 	sed -i -n 's/color=blue/color=black/g' thesis.tex
 	latexmk -pdflatex="xelatex --shell-escape %O %S" -pdf thesis.tex
 	pdftk core-10-title.pdf core-11-empty.pdf thesis.pdf cat output thesis-print.pdf # learned from https://www.linux.com/learn/tutorials/442414
+	$(MAKE) check
 
 check: # learned from http://stackoverflow.com/a/694125
-	# [ ] call after make pdf & print or before doc
 	pdftotext thesis-test.pdf thesis-test-to.txt
 	pdftotext thesis.pdf thesis-to.txt
 	cat core-*.md | \
+	# [x] call after make pdf & print or before doc; learned from http://stackoverflow.com/a/33245795/4341322
 	grep \
 		--ignore-case \
 		--color \
