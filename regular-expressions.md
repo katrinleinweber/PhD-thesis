@@ -8,7 +8,7 @@ Useful for ensuring that sentences begin in new line, thus keeping small changes
 - `\w\ {2,}\w`: finds duplicate whitespaces within text
 - `\ {2,}\n`: finds [line-breaking](http://pandoc.org/README.html#paragraphs) double whitespaces on line end
 - `\n.+\(.+\)\n- Your \w+ on Page \d+ \| .+ \| Added on \w+, \d+ \w+ \w+ \d+:\d+:\d+\n`: finds meta-info in Kindle clippings
-- `(\b\S+\b)\s+\b\1\b` or `\b(\w+)\s+\1\b`: find duplicate, consecutive words; learned from https://stackoverflow.com/questions/2823016/
+- `/(\b\S+\b)\s+\b\1\b/i`: find duplicate, consecutive words; learned from http://stackoverflow.com/a/12309899/4341322
 - `\.\w+\ `: finds unformatted file extensions and numbers without non-breaking space before unit
 - [ ] find ways to add such searches to the makefile => "unit-test" like approach to eliminate repetition of errors
 

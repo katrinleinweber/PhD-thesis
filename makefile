@@ -95,22 +95,21 @@ print:
 	$(MAKE) check
 
 check: # learned from http://stackoverflow.com/a/694125
-	pdftotext thesis-test.pdf thesis-test-to.txt
-	pdftotext thesis.pdf thesis-to.txt
-	cat core-*.md | \
 	# [x] call after make pdf & print or before doc; learned from http://stackoverflow.com/a/33245795/4341322
-	grep \
-		--ignore-case \
-		--color \
-		--extended-regexp \
-		--file=CHECKS-MD
-
-	cat *-to.txt | \
+	pdftotext thesis.pdf - | \
 	grep \
 		--ignore-case \
 		--color \
 		--extended-regexp \
 		--file=CHECKS-PDF
+
+check-md:
+	cat core-*.md | \
+	grep \
+		--ignore-case \
+		--color \
+		--extended-regexp \
+		--file=CHECKS-MD
 
 diff: # learned from http://unix.stackexchange.com/a/104534 & http://stackoverflow.com/a/12170504
 	@while [ -z "$$EARLIER" ] || [ -z "$$LATER" ]; do \
