@@ -50,6 +50,7 @@ This repository stores both the content of my thesis (sources, data, figures and
 
 ## Known issues & miscellaneous advice
 
+- Due to an [incompatibility](https://groups.google.com/forum/#!msg/pandoc-discuss/J3o82G0WGOk/) between [`titlesec`](https://github.com/katrinleinweber/PhD-thesis/blob/doctor/header.tex#L15) and pandoc [`v1.15.1`](https://github.com/jgm/pandoc/releases/tag/1.15.1/) is required to produce an exact copy of the [accepted version](https://kops.uni-konstanz.de/handle/123456789/34342).
+- Be prepared for newly introduced incompatibilities when updating [LaTeX packages](https://www.ctan.org/) or [pandoc](http://pandoc.org/). Don't update on a Friday and [automate the testing of the final PDF](https://github.com/katrinleinweber/PhD-thesis/blob/doctor/makefile#L97) for control characters like `~`, `{`, `_`, etc.
 - [Cygwin shortcut for working directories](http://stackoverflow.com/a/12010346)
 - Try to avoid tinkering too much & often with citation style, makefile etc. by working on a `content` branch most of the time, only rarely on `format`. Merge both into `doctor` only for review (maybe weekly) & final printing.
-- Be prepared for newly introduced incompatibilities when updating [LaTeX packages](https://www.ctan.org/) or [pandoc](http://pandoc.org/). Automate the testing of the final PDF for control characters like `~`, `{`, `_`, etc.
