@@ -1,6 +1,6 @@
 # Characterisation of biotic interactions between a *Dyadobacter* strain and the diatom *Achnanthidium minutissimum* (Katrin Leinweber, PhD thesis, 2012-2015)
 
-This repository stores both the content of my thesis (sources, data, figures and supplemental files), and the software toolchain used to compile it into the final printed and [electronic](http://kops.uni-konstanz.de/handle/123456789/34342) versions. **Please note:** The latter version is official! This repository is just an experimental tech-demo & backup.
+This repository stores both the content of my thesis (sources, data, figures and supplemental files), and the software toolchain used to compile it into the final printed and **[electronic, official version](https://kops.uni-konstanz.de/handle/123456789/34342)**. This repository is an experimental tech-demo & backup.
 
 ## Toolchain: mixed Markdown & LaTeX
 
