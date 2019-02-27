@@ -24,7 +24,7 @@ This repository stores both the content of my thesis (sources, data, figures and
     - simpler alternative, but with notable freezing of Zotero for few seconds & no ability to export different collections to different files: `Autoexport mode`, `Trigger by events`, `C:\path\to\thesis\references.bib` & `[...] whole library`
 1. Cite by letting [Citer](https://github.com/mangecoeur/Citer) expand known BibTeX key from `thesis.bib` & `references.bib` followed by auto-pasting it into text with [PhraseExpress](http://www.phraseexpress.com/index.html) rule for `[@{#insertclipboard}]` (Win) and `[@%clipboard]` in [TextExpander](http://smilesoftware.com/TextExpander/index.html) (Mac).
 1. Let `makefile` copy `thesis.bib` from backup to working directory.
-1. Let `makefile` call [natbib](http://ctan.org/pkg/natbib) for PDF version, but custom citation style `references.csl` with black links & shorter bibliography entries for print.
+1. Let [`makefile` replace PDF's link color with `black`](https://github.com/katrinleinweber/PhD-thesis/blob/11ccb4a8308bdc9616e4944ef3f0e92e2c7b3156/makefile#L92) for printing.
 
 ### Git
 
