@@ -6,7 +6,7 @@ This repository stores both the content of my thesis (sources, data, figures and
 
 ### Text
 
-1. Write in AcademicMarkdown in [Sublime](https://www.sublimetext.com/3) with Citer, as [explained by Christopher Grainger](http://blog.cigrainger.com/2014/07/pandoc-markdown.html).
+1. Write in AcademicMarkdown in [Sublime](https://www.sublimetext.com/3) with Citer, as [explained by Christopher Grainger](https://web.archive.org/web/20160524123217/http://blog.cigrainger.com:80/2014/07/pandoc-markdown.html).
 1. Separate `.md` file per chapter; number in filename determines order.
 1. Figures as mixed MD & LaTeX: `![**Caption.** Some more legend.\label{label}](images/image.pdf)`
 1. Conversion to LaTeX, then PDF with [pandoc](http://johnmacfarlane.net/pandoc/) via a `makefile` adapted from [Jens Erat's "Scientific Markdown"](https://github.com/JensErat/scientific-markdown/).
